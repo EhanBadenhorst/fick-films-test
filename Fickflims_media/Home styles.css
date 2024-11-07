@@ -1,0 +1,194 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Basic styling */
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    background: url('background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header styling */
+header {
+    background-color: rgba(51, 51, 51, 0.9); /* Slight transparency for better visibility */
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 1000; /* Ensures the header is on top of other elements */
+}
+
+header h1 {
+    font-size: 1.5em;
+    margin-left: 10px;
+}
+
+h2 {
+    text-align: center;
+}
+
+/* Navigation menu styling */
+nav ul {
+    list-style-type: none;
+    display: none; /* Hide on mobile */
+    flex-direction: column;
+    background-color: #333;
+    position: absolute;
+    top: 60px; /* Adjust this for positioning under the header */
+    right: 0; /* Fix to the right edge of the screen */
+    width: 200px;
+    border-radius: 5px;
+    z-index: 1001; /* Higher z-index to appear on top of other content */
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s ease-in-out; /* Smooth transition */
+}
+
+nav ul.show {
+    display: flex; /* Show dropdown menu */
+    opacity: 1; /* Make visible */
+}
+
+nav ul li {
+    margin: 10px 0;
+    text-align: center;
+    transform: translateX(-50px); /* Initial position for slide-in animation */
+    opacity: 0; /* Initially hidden */
+    animation: slide-in 0.5s forwards 0.3s; /* Slide-in animation for menu items */
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.2em;
+    display: block;
+    padding: 10px;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+    background-color: #555;
+    transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+/* Mobile menu button */
+.menu-icon {
+    display: block;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #fff;
+    z-index: 1002; /* Ensure the menu icon is above other elements */
+}
+
+/* Video section */
+.video-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.video-container video {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Add transition effects for hover */
+}
+
+.video-container video:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+}
+
+.vertical-video {
+    width: 100%;
+    max-width: 200px; /* Adjust width as needed */
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.vertical-video:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+}
+
+/* Footer styling */
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #333;
+    color: #fff;
+    margin-top: auto; /* Push footer to bottom */
+    width: 100%;
+    position: relative;
+    z-index: 1000;
+}
+
+/* Animation for navigation items */
+@keyframes slide-in {
+    0% {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Desktop view */
+@media (min-width: 768px) {
+    nav ul {
+        display: flex; /* Show nav on larger screens */
+        flex-direction: row;
+        position: static;
+        background-color: transparent;
+        width: auto;
+        border-radius: 0;
+        opacity: 1; /* Make visible by default */
+    }
+
+    nav ul li {
+        transform: none;
+        opacity: 1;
+        animation: none; /* Remove animation for desktop */
+    }
+
+    nav ul li a {
+        padding: 0;
+        margin: 0 15px;
+    }
+
+    .menu-icon {
+        display: none;
+    }
+}
+
+/* Mobile view adjustments */
+@media (max-width: 768px) {
+    nav ul {
+        position: fixed; /* Fix the menu to the screen */
+        top: 60px; /* Adjust this for positioning under the header */
+        right: 0; /* Lock the menu to the right side */
+        width: 200px; /* Define the width */
+        opacity: 1; /* Ensure visibility */
+    }
+
+    .menu-icon {
+        display: block;
+        font-size: 1.5em;
+        cursor: pointer;
+        color: #fff;
+    }
+}

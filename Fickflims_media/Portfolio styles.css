@@ -1,0 +1,209 @@
+/* Reset basic styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Basic styling */
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    background: url('background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header styling */
+header {
+    background-color: rgba(51, 51, 51, 0.9); /* Slight transparency for better visibility */
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 1000; /* Ensures the header is on top of other elements */
+}
+
+header h1 {
+    font-size: 1.5em;
+    margin-left: 10px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px; /* Add some space below the heading */
+}
+
+/* Navigation menu styling */
+nav ul {
+    list-style-type: none;
+    display: none; /* Hide on mobile */
+    flex-direction: column;
+    background-color: #333;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    width: 200px;
+    border-radius: 5px;
+    z-index: 1001; /* Higher z-index to appear on top of videos */
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s ease-in-out;
+}
+
+nav ul.show {
+    display: flex; /* Show dropdown menu */
+    opacity: 1; /* Make visible */
+}
+
+nav ul li {
+    margin: 15px 0; /* More space between items */
+    text-align: center;
+    transform: translateX(-50px);
+    opacity: 0;
+    animation: slide-in 0.5s forwards 0.3s; /* Animate the items */
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.2em;
+    display: block;
+    padding: 10px;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+    background-color: #555;
+    transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+/* Mobile menu button */
+.menu-icon {
+    display: block;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #fff;
+}
+
+/* Portfolio section */
+main {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Video container styling */
+.video-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px; /* Adjusted gap between videos */
+    justify-content: center;
+    margin-bottom: 20px; /* Add margin to the bottom */
+    text-align: center; /* Center the text */
+}
+
+/* Horizontal video styling */
+#horizontal-videos video {
+    width: 80%;
+    max-width: 600px; /* Slightly larger width for horizontal videos */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Added shadow for effect */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transition for hover */
+    margin-bottom: 20px; /* Add space between video and text */
+}
+
+#horizontal-videos video:hover {
+    transform: scale(1.02); /* Slight zoom effect on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Add stronger shadow on hover */
+}
+
+/* Vertical video styling */
+#vertical-videos {
+    display: flex;
+    flex-wrap: wrap; /* Allow stacking next to each other */
+    gap: 20px; /* Add space between vertical videos */
+    justify-content: center;
+    text-align: center; /* Center the text */
+}
+
+#vertical-videos video {
+    width: 45%; /* Make the vertical videos smaller by default */
+    max-width: 350px; /* Increased max-width for vertical videos */
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Added shadow for effect */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transition for hover */
+    margin-bottom: 20px; /* Add space between video and text */
+}
+
+#vertical-videos video:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Add stronger shadow on hover */
+}
+
+/* Footer styling */
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #333;
+    color: #fff;
+    margin-top: auto; /* Push footer to bottom */
+    width: 100%;
+    position: relative;
+    z-index: 1000;
+}
+
+/* Desktop view */
+@media (min-width: 768px) {
+    nav ul {
+        display: flex; /* Show nav on larger screens */
+        flex-direction: row;
+        position: static;
+        background-color: transparent;
+        width: auto;
+        border-radius: 0;
+        opacity: 1; /* Make visible by default */
+    }
+
+    nav ul li {
+        transform: none;
+        opacity: 1;
+        animation: none; /* Remove animation for desktop */
+    }
+
+    nav ul li a {
+        padding: 0;
+        margin: 0 15px;
+    }
+
+    .menu-icon {
+        display: none;
+    }
+
+    /* Make horizontal videos larger on desktop */
+    #horizontal-videos video {
+        max-width: 600px; /* Increase max width on desktop */
+    }
+
+    /* Make vertical videos smaller on desktop */
+    #vertical-videos video {
+        width: 20%; /* Decrease size of vertical videos on desktop */
+    }
+}
+
+/* Animation for navigation items */
+@keyframes slide-in {
+    0% {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

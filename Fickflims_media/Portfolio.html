@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Portfolio</title>
+    <link rel="stylesheet" href="Portfolio styles.css">
+</head>
+<body>
+    <header>
+        <h1>My Video Portfolio</h1>
+        <span class="menu-icon">&#9776;</span>
+        <nav>
+            <ul>
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="More about fickfilms_media.html">About</a></li>
+                <li><a href="Contact us.html">Contact</a></li>
+                <li><a href="Portfolio.html">Portfolio</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="horizontal-videos">
+            <h2>Horizontal Videos</h2>
+            <div class="video-container">
+                <!-- Manually add each video file -->
+                <video controls>
+                    <source src="Portfolio videos/Horizontal videos/Vidio.1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <video controls>
+                    <source src="videos/horizontal/Video2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <video controls>
+                    <source src="videos/horizontal/Video2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </section>
+
+        <section id="vertical-videos">
+            <h2>Vertical Videos</h2>
+            <div class="video-container">
+                <video controls class="vertical-video">
+                    <source src="Portfolio videos/Vertical videos/Video1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+
+                <video controls class="vertical-video">
+                    <source src="Portfolio videos/Vertical videos/Video2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+
+                <video controls class="vertical-video">
+                    <source src="Portfolio videos/Vertical videos/Video1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+
+                <video controls class="vertical-video">
+                    <source src="Portfolio videos/Vertical videos/Video1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+      
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Your Name</p>
+    </footer>
+    <script>
+        document.querySelector('.menu-icon').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+    </script>
+</body>
+</html>
